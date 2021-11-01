@@ -10,21 +10,21 @@
 
 <body>
     <script>
-        let jankenChoice
+        let cpuChoice;
 
         function getRandomInt() {
             return Math.floor(Math.random() * 3); // Get number between 0 and 2
         }
 
-        function computerPlay() {
-            jankenChoice = getRandomInt()
+        function cpuPlay() {
+            cpuChoice = getRandomInt()
 
-            if (jankenChoice === 0) {
-                return jankenChoice = 'Rock';
-            } else if (jankenChoice === 1) {
-                return jankenChoice = 'Paper';
-            } else if (jankenChoice === 2) {
-                return jankenChoice = 'Scissors';
+            if (cpuChoice === 0) {
+                return cpuChoice = 'Rock';
+            } else if (cpuChoice === 1) {
+                return cpuChoice = 'Paper';
+            } else if (cpuChoice === 2) {
+                return cpuChoice = 'Scissors';
             }
         }
     </script>
