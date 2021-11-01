@@ -11,6 +11,8 @@
 <body>
     <script>
         let cpuChoice;
+        let playerChoice;
+        let roundWin;
 
         function getRandomInt() {
             return Math.floor(Math.random() * 3); // Get number between 0 and 2
@@ -25,6 +27,44 @@
                 return cpuChoice = 'Paper';
             } else if (cpuChoice === 2) {
                 return cpuChoice = 'Scissors';
+            }
+        }
+
+        function playRound(playerChoice, cpuChoice) {
+            playerChoice = prompt('Rock, paper, or scissors?');
+            playerChoice.toLowerCase(); // for case insensitivity
+
+            switch(playerChoice) {
+                case 'rock':
+                    if (cpuChoice === 'Rock') {
+                        return roundWin = 'draw'
+                    } else if (cpuChoice === 'Paper') {
+                        return roundWin = false;
+                    } else if (cpuChoice === 'Scissors') {
+                        return roundWin = true;
+                    }
+                    break;
+                case 'paper':
+                    if (cpuChoice === 'Rock') {
+                        return roundWin = true;
+                    } else if (cpuChoice === 'Paper') {
+                        return roundWin = 'draw'
+                    } else if (cpuChoice === 'Scissors') {
+                        return roundWin = false;
+                    }
+                    break;
+                case 'scissors':
+                    if (cpuChoice === 'Rock') {
+                        return roundWin = false;
+                    } else if (cpuChoice === 'Paper') {
+                        return roundWin = true;
+                    } else if (cpuChoice === 'Scissors') {
+                        return roundWin = 'draw';
+                    }
+                    break;
+                default:
+                    return 'error'
+                    break;
             }
         }
     </script>
