@@ -15,6 +15,7 @@
         let roundWin;
         let playerScore;
         let cpuScore;
+        let roundCounter;
 
         function getRandomInt() {
             return Math.floor(Math.random() * 3);       // Get number between 0 and 2
@@ -76,19 +77,19 @@
         function game() {
             playerScore = 0;
             cpuScore = 0;
-            i = 0;                                      // counter
+            roundCounter = 0;
 
-            while (i < 5) {                             // five rounds
+            while (roundCounter < 5) {                             // five rounds
                 playRound()
 
                 if (roundWin === true) {
                     console.log('You win this round!');
                     ++playerScore;
-                    i++;
+                    roundCounter++;
                 } else if (roundWin === false) {
                     console.log('You lose this round.');
                     ++cpuScore;
-                    i++;
+                    roundCounter++;
                 } else if (roundWin === 'draw') {
                     console.log('This round was a draw. Try again!')
                 } else {
