@@ -39,7 +39,7 @@
             cpuChoice = cpuPlay();
             console.log(`You chose ${playerChoice}. The computer chose ${cpuChoice}.`);
 
-            switch(playerChoice) {
+            switch (playerChoice) {
                 case 'rock':
                     if (cpuChoice === 'rock') {
                         return roundWin = 'draw'
@@ -78,7 +78,7 @@
             cpuScore = 0;
             i = 0; // counter
 
-            while(i < 5) { // five rounds
+            while (i < 5) { // five rounds
                 playRound()
 
                 if (roundWin === true) {
@@ -88,7 +88,7 @@
                 } else if (roundWin === false) {
                     console.log('You lose this round.');
                     ++cpuScore;
-                    i++
+                    i++;
                 } else if (roundWin === 'draw') {
                     console.log('This round was a draw. Try again!')
                 } else {
