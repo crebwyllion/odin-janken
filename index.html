@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors</title>
+    <title>Rock, Paper, scissors</title>
 </head>
 
 <body>
@@ -24,11 +24,11 @@
             cpuChoice = getRandomInt()
 
             if (cpuChoice === 0) {
-                return cpuChoice = 'Rock';
+                return cpuChoice = 'rock';
             } else if (cpuChoice === 1) {
-                return cpuChoice = 'Paper';
+                return cpuChoice = 'paper';
             } else if (cpuChoice === 2) {
-                return cpuChoice = 'Scissors';
+                return cpuChoice = 'scissors';
             }
         }
 
@@ -39,29 +39,29 @@
 
             switch(playerChoice) {
                 case 'rock':
-                    if (cpuChoice === 'Rock') {
+                    if (cpuChoice === 'rock') {
                         return roundWin = 'draw'
-                    } else if (cpuChoice === 'Paper') {
+                    } else if (cpuChoice === 'paper') {
                         return roundWin = false;
-                    } else if (cpuChoice === 'Scissors') {
+                    } else if (cpuChoice === 'scissors') {
                         return roundWin = true;
                     }
                     break;
                 case 'paper':
-                    if (cpuChoice === 'Rock') {
+                    if (cpuChoice === 'rock') {
                         return roundWin = true;
-                    } else if (cpuChoice === 'Paper') {
+                    } else if (cpuChoice === 'paper') {
                         return roundWin = 'draw'
-                    } else if (cpuChoice === 'Scissors') {
+                    } else if (cpuChoice === 'scissors') {
                         return roundWin = false;
                     }
                     break;
                 case 'scissors':
-                    if (cpuChoice === 'Rock') {
+                    if (cpuChoice === 'rock') {
                         return roundWin = false;
-                    } else if (cpuChoice === 'Paper') {
+                    } else if (cpuChoice === 'paper') {
                         return roundWin = true;
-                    } else if (cpuChoice === 'Scissors') {
+                    } else if (cpuChoice === 'scissors') {
                         return roundWin = 'draw';
                     }
                     break;
