@@ -34,8 +34,10 @@
 
         function playRound(playerChoice, cpuChoice) {
             playerChoice = prompt('Rock, paper, or scissors?');
-            playerChoice.toLowerCase(); // for case insensitivity
+            playerChoice = playerChoice.toLowerCase(); // for case insensitivity
+
             cpuChoice = cpuPlay();
+            console.log(`You chose ${playerChoice}. The computer chose ${cpuChoice}.`);
 
             switch(playerChoice) {
                 case 'rock':
@@ -92,6 +94,8 @@
                 } else {
                     console.log('Wait... what happened?')
                 }
+
+                console.log(`Your score is ${playerScore} and the computer's score is ${cpuScore}.`);
             }
 
             if (playerScore > cpuScore) {
