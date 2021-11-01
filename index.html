@@ -17,14 +17,14 @@
         let cpuScore;
 
         function getRandomInt() {
-            return Math.floor(Math.random() * 3); // Get number between 0 and 2
+            return Math.floor(Math.random() * 3);       // Get number between 0 and 2
         }
 
         function cpuPlay() {
             cpuChoice = getRandomInt()
 
-            if (cpuChoice === 0) {
-                return cpuChoice = 'rock';
+            if (cpuChoice === 0) {                      // convert numbers into strings for easier reading
+                return cpuChoice = 'rock';                  // and to plug into other strings later
             } else if (cpuChoice === 1) {
                 return cpuChoice = 'paper';
             } else if (cpuChoice === 2) {
@@ -32,20 +32,20 @@
             }
         }
 
-        function playRound(playerChoice, cpuChoice) {
+        function playRound(playerChoice, cpuChoice) {   // one round of janken
             playerChoice = prompt('Rock, paper, or scissors?');
-            playerChoice = playerChoice.toLowerCase(); // for case insensitivity
+            playerChoice = playerChoice.toLowerCase();  // for case insensitivity
 
             cpuChoice = cpuPlay();
             console.log(`You chose ${playerChoice}. The computer chose ${cpuChoice}.`);
 
-            switch (playerChoice) {
+            switch (playerChoice) {                     // comparing playerChoice to cpuChoice
                 case 'rock':
                     if (cpuChoice === 'rock') {
-                        return roundWin = 'draw'
-                    } else if (cpuChoice === 'paper') {
-                        return roundWin = false;
-                    } else if (cpuChoice === 'scissors') {
+                        return roundWin = 'draw'        // chose a string because it shows up as different
+                    } else if (cpuChoice === 'paper') {     // from bools in a strict equality test
+                        return roundWin = false;            // elegant? noooooo. indicative of experience? nooooo.
+                    } else if (cpuChoice === 'scissors') {  // works for this program? just about.
                         return roundWin = true;
                     }
                     break;
@@ -76,9 +76,9 @@
         function game() {
             playerScore = 0;
             cpuScore = 0;
-            i = 0; // counter
+            i = 0;                                      // counter
 
-            while (i < 5) { // five rounds
+            while (i < 5) {                             // five rounds
                 playRound()
 
                 if (roundWin === true) {
