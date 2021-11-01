@@ -33,6 +33,7 @@
         function playRound(playerChoice, cpuChoice) {
             playerChoice = prompt('Rock, paper, or scissors?');
             playerChoice.toLowerCase(); // for case insensitivity
+            cpuChoice = cpuPlay();
 
             switch(playerChoice) {
                 case 'rock':
