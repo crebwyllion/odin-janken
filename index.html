@@ -22,14 +22,14 @@
         }
 
         function cpuPlay() {
-            cpuChoice = getRandomInt()
+            randomInt = getRandomInt()
 
-            if (cpuChoice === 0) {                      // convert numbers into strings for easier reading
-                return cpuChoice = 'rock';                  // and to plug into other strings later
-            } else if (cpuChoice === 1) {
-                return cpuChoice = 'paper';
-            } else if (cpuChoice === 2) {
-                return cpuChoice = 'scissors';
+            if (randomInt === 0) {              // convert numbers into strings for easier reading
+                return 'rock';                  // and to plug into other strings later
+            } else if (randomInt === 1) {
+                return 'paper';
+            } else if (randomInt === 2) {
+                return 'scissors';
             }
         }
 
