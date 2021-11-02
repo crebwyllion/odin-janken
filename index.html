@@ -33,9 +33,9 @@
             }
         }
 
-        function playRound(playerChoice, cpuChoice) {   // one round of janken
-            playerChoice = prompt('Rock, paper, or scissors?');
-            playerChoice = playerChoice.toLowerCase();  // for case insensitivity
+        function playRound(player, cpu) {
+            playerChoice = player;
+            cpuChoice = cpu;
 
             switch (playerChoice) {
                 case 'rock':
@@ -84,6 +84,20 @@
             } else {
                 console.log('Wait... what happened?')
             }
+        }
+
+        function playGame() {
+            roundCounter = 0;
+            playerScore = 0;
+            cpuScore = 0;
+
+            while (roundCounter < 5) {
+                playRound(prompt('Rock, paper, or scissors?').toLowerCase(), cpuPlay());
+
+                console.log(`Your score is ${playerScore} and the computer's score is ${cpuScore}.`);
+            }
+
+            showGameResults();
         }
     </script>
 </body>
