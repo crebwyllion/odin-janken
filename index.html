@@ -74,29 +74,21 @@
             }
         }
 
-        function game() {
-            playerScore = 0;
-            cpuScore = 0;
-            roundCounter = 0;
+        function winRound() {
+            console.log(`You played ${playerChoice} and the computer played ${cpuChoice}. You win this round!`);
+            ++playerScore
+            roundCounter++
+        }
 
-            while (roundCounter < 5) {                             // five rounds
-                playRound()
-
-                if (roundWin === true) {
-                    console.log('You win this round!');
-                    ++playerScore;
-                    roundCounter++;
-                } else if (roundWin === false) {
-                    console.log('You lose this round.');
-                    ++cpuScore;
-                    roundCounter++;
-                } else if (roundWin === 'draw') {
-                    console.log('This round was a draw. Try again!')
-                } else {
-                    console.log('Wait... what happened?')
+        function loseRound() {
+            console.log(`You played ${playerChoice} and the computer played ${cpuChoice}. You lose this round.`);
+            ++cpuScore
+            roundCounter++
                 }
 
-                console.log(`Your score is ${playerScore} and the computer's score is ${cpuScore}.`);
+        function drawRound
+            () {
+            console.log(`You played ${playerChoice} and the computer played ${cpuChoice}. This round is a draw.`);
             }
 
             if (playerScore > cpuScore) {
