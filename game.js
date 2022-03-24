@@ -3,8 +3,10 @@ let playerScore = 0;
 let cpuScore = 0;
 const choices = document.querySelector('#choices');
 const buttons = document.querySelectorAll('.choice'); 
-const game = document.querySelector('#game');
+const text = document.querySelector('#text');
 const round = document.createElement('div');
+const results = document.createElement('div');
+const playAgain = document.createElement('button');
 const playerScoreDisplay = document.querySelector('#player-score');
 const cpuScoreDisplay = document.querySelector('#cpu-score');
 
@@ -52,6 +54,7 @@ function playRound(player, cpu) {
     }
 }
 
+// updates score display
 function updateScore() {
     playerScoreDisplay.textContent = `${playerScore}`;
     cpuScoreDisplay.textContent = `${cpuScore}`;
@@ -60,7 +63,7 @@ function updateScore() {
 function winRound() {
     round.textContent = `You played ${playerChoice} and the computer played
         ${cpuChoice}. You win this round!`;
-    game.appendChild(round);
+    text.appendChild(round);
     ++playerScore;
     updateScore();
     checkScore();
@@ -69,7 +72,7 @@ function winRound() {
 function loseRound() {
     round.textContent = `You played ${playerChoice} and the computer played
         ${cpuChoice}. You lose this round.`;
-    game.appendChild(round);
+    text.appendChild(round);
     ++cpuScore;
     updateScore();
     checkScore();
@@ -79,17 +82,37 @@ function drawRound
     () {
     round.textContent = `You played ${playerChoice} and the computer played
         ${cpuChoice}. This round is a draw.`;
-    game.appendChild(round);
+    text.appendChild(round);
 }
 
+// check to see if game is over yet; best 3 out of 5
 function checkScore() {
     if (playerScore == 3 || cpuScore == 3) {
         choices.style.visibility = 'hidden';
         showGameResults();
     }
-    else {
-        choices.style.visibility = 'visible';
+}
+
+// adds a functional replay button
+function replay () {
+    playAgain.textContent = 'Play again?';
+    playAgain.id = 'play-again';
+    text.appendChild(playAgain);
+    const playAgainButton = document.querySelector('#play-again');
+    playAgainButton.addEventListener('click', () => {
+        playerScore = 0;
+        cpuScore = 0;
+        updateScore();
+        cleanSlate();
+    })
+}
+
+// removes added round and results text, play again button; restores play buttons
+function cleanSlate () {
+    while (text.firstChild) {
+        text.firstChild.remove();
     }
+    choices.style.visibility = 'visible';
 }
 
 function showGameResults() {
