@@ -94,11 +94,16 @@ function checkScore() {
 
 function showGameResults() {
     if (playerScore > cpuScore) {
-        console.log('You win the game! Amazing!');
+        results.textContent = 'You won the game! Amazing!';
+        text.appendChild(results);
+        replay();
     } else if (playerScore < cpuScore) {
-        console.log('You lost the game. Better luck next time!');
+        results.textContent = 'You lost the game. Better luck next time!';
+        text.appendChild(results);
+        replay();
     } else {
-        console.log('Wait... what happened?');
+        results.textContent = 'Wait... what happened?';
+        text.appendChild(results);
     }
 }
 
