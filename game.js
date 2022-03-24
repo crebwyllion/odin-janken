@@ -113,17 +113,3 @@ buttons.forEach((button) => {
         playRound(button.id, cpuPlay());
     })
 })
-
-function playGame() {
-    roundCounter = 0;
-    playerScore = 0;
-    cpuScore = 0;
-
-    while (roundCounter < 5) {
-        playRound(prompt('Rock, paper, or scissors?').toLowerCase(), cpuPlay());
-
-        console.log(`Your score is ${playerScore} and the computer's score is ${cpuScore}.`);
-    }
-
-    showGameResults();
-}
