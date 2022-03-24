@@ -2,6 +2,8 @@ let roundCounter = 0;
 let playerScore = 0;
 let cpuScore = 0;
 const buttons = document.querySelectorAll('.playchoice'); 
+const game = document.querySelector('#game');
+const results = document.createElement('div');
 
 // create random integer for next function
 function getRandomInt() {
@@ -48,20 +50,23 @@ function playRound(player, cpu) {
 }
 
 function winRound() {
-    console.log(`You played ${playerChoice} and the computer played ${cpuChoice}. You win this round!`);
+    results.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. You win this round!`;
+    game.appendChild(results);
     ++playerScore
     roundCounter++
 }
 
 function loseRound() {
-    console.log(`You played ${playerChoice} and the computer played ${cpuChoice}. You lose this round.`);
+    results.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. You lose this round.`;
+    game.appendChild(results);
     ++cpuScore
     roundCounter++
 }
 
 function drawRound
     () {
-    console.log(`You played ${playerChoice} and the computer played ${cpuChoice}. This round is a draw.`);
+    results.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. This round is a draw.`;
+    game.appendChild(results);
 }
 
 function showGameResults() {
