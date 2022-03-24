@@ -9,11 +9,21 @@
 </head>
 
 <body>
+    <div id="score">
+        <div class="scores">
+            <div class="score-header">Player</div>
+            <div class="score-number" id="player-score">0</div>
+        </div>
+        <div class="scores">
+            <div class="score-header">CPU</div>
+            <div class="score-number" id="cpu-score">0</div>
+        </div>
+    </div>
     <div id="game">
         <div id="choices">
-            <button type="button" class="playchoice" id="rock">Rock</button>
-            <button type="button" class="playchoice" id="paper">Paper</button>
-            <button type="button" class="playchoice" id="scissors">Scissors</button>
+            <button type="button" class="choice" id="rock">Rock</button>
+            <button type="button" class="choice" id="paper">Paper</button>
+            <button type="button" class="choice" id="scissors">Scissors</button>
         </div>
     </div>
     <script src="game.js"></script>

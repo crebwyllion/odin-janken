@@ -1,9 +1,11 @@
 let roundCounter = 0;
 let playerScore = 0;
 let cpuScore = 0;
-const buttons = document.querySelectorAll('.playchoice'); 
+const buttons = document.querySelectorAll('.choice'); 
 const game = document.querySelector('#game');
-const results = document.createElement('div');
+const round = document.createElement('div');
+const playerScoreDisplay = document.querySelector('#player-score');
+const cpuScoreDisplay = document.querySelector('#cpu-score');
 
 // create random integer for next function
 function getRandomInt() {
@@ -12,7 +14,7 @@ function getRandomInt() {
 
 // call this function to pick rock, paper, or scissors for cpu
 function cpuPlay() {
-    randomInt = getRandomInt()
+    randomInt = getRandomInt();
 
     if (randomInt === 0) {      // convert numbers into strings for readability
         return 'rock';
@@ -50,32 +52,34 @@ function playRound(player, cpu) {
 }
 
 function winRound() {
-    results.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. You win this round!`;
-    game.appendChild(results);
-    ++playerScore
-    roundCounter++
+    round.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. You win this round!`;
+    game.appendChild(round);
+    ++playerScore;
+    playerScoreDisplay.textContent = `${playerScore}`;
+    roundCounter++;
 }
 
 function loseRound() {
-    results.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. You lose this round.`;
-    game.appendChild(results);
-    ++cpuScore
-    roundCounter++
+    round.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. You lose this round.`;
+    game.appendChild(round);
+    ++cpuScore;
+    cpuScoreDisplay.textContent = `${cpuScore}`;
+    roundCounter++;
 }
 
 function drawRound
     () {
-    results.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. This round is a draw.`;
-    game.appendChild(results);
+    round.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. This round is a draw.`;
+    game.appendChild(round);
 }
 
 function showGameResults() {
     if (playerScore > cpuScore) {
-        console.log('You win the game! Amazing!')
+        console.log('You win the game! Amazing!');
     } else if (playerScore < cpuScore) {
-        console.log('You lost the game. Better luck next time!')
+        console.log('You lost the game. Better luck next time!');
     } else {
-        console.log('Wait... what happened?')
+        console.log('Wait... what happened?');
     }
 }
 
