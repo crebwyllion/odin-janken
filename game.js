@@ -1,6 +1,7 @@
 let roundCounter = 0;
 let playerScore = 0;
 let cpuScore = 0;
+const choices = document.querySelector('#choices');
 const buttons = document.querySelectorAll('.choice'); 
 const game = document.querySelector('#game');
 const round = document.createElement('div');
@@ -51,26 +52,44 @@ function playRound(player, cpu) {
     }
 }
 
+function updateScore() {
+    playerScoreDisplay.textContent = `${playerScore}`;
+    cpuScoreDisplay.textContent = `${cpuScore}`;
+}
+
 function winRound() {
-    round.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. You win this round!`;
+    round.textContent = `You played ${playerChoice} and the computer played
+        ${cpuChoice}. You win this round!`;
     game.appendChild(round);
     ++playerScore;
-    playerScoreDisplay.textContent = `${playerScore}`;
-    roundCounter++;
+    updateScore();
+    checkScore();
 }
 
 function loseRound() {
-    round.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. You lose this round.`;
+    round.textContent = `You played ${playerChoice} and the computer played
+        ${cpuChoice}. You lose this round.`;
     game.appendChild(round);
     ++cpuScore;
-    cpuScoreDisplay.textContent = `${cpuScore}`;
-    roundCounter++;
+    updateScore();
+    checkScore();
 }
 
 function drawRound
     () {
-    round.textContent = `You played ${playerChoice} and the computer played ${cpuChoice}. This round is a draw.`;
+    round.textContent = `You played ${playerChoice} and the computer played
+        ${cpuChoice}. This round is a draw.`;
     game.appendChild(round);
+}
+
+function checkScore() {
+    if (playerScore == 3 || cpuScore == 3) {
+        choices.style.visibility = 'hidden';
+        showGameResults();
+    }
+    else {
+        choices.style.visibility = 'visible';
+    }
 }
 
 function showGameResults() {
